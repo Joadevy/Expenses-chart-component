@@ -21,15 +21,13 @@ function loadBalances(){
 }
 
 async function loadGraph(){
-    const data = await fetch('data.json').then(res => res.json());
+    const data = await fetch('src/data.json').then(res => res.json());
     const dateToday = new Date;
     const indexDay = dateToday.getDay();
     const fragment = document.createDocumentFragment();
-    console.log(indexDay)
     data.forEach((item,index) => {
         const bar = graphBar.content.cloneNode(true);
-        const height = Math.round(32*(item['amount']/10));
-        const amount = item['amount'].toString();
+        const height = Math.round(32*(item['amount']/10))
         const barFill = bar.querySelector('.bar');
         barFill.style.height = `${height}px`;
         (index === indexDay-1) || (indexDay === 0 && index === 6) ? barFill.classList.replace(`bg-primary-red`,`bg-primary-cyan`) : '';
