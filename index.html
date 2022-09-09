@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
   <title>Expenses chart component</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="src/style/style.css">
 </head>
 <body class="grid place-content-center min-h-screen font-dmsans bg-neutral-cream">
   <div class="flex flex-col gap-4 max-w-xs lg:max-w-lg">
@@ -15,7 +15,7 @@
           <p class="font-bold text-2xl">$<span id="b-total">0.00</span></p>
         </div>
         <div class="self-center">
-          <img src="images/logo.svg" alt="">
+          <img src="assets/logo.svg" alt="">
         </div>
       </header>
 
@@ -45,5 +45,5 @@
     <span class="amount order-0 self-center absolute top-[-30px] p-1 rounded-sm text-white text-center text-xs peer-hover:bg-black peer-hover:z-10"></span>
   </div>
 </template>
-<script src="index.js"></script>
+<script src="src/index.js"></script>
 </html>
