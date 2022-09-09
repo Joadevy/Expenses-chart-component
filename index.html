@@ -7,25 +7,43 @@
   <title>Expenses chart component</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="font-serif">
-  My balance
-  $921.48
-<div class="text-primary-cyan font-dmsans">
-  Spending - Last 7 days
-</div>
+<body class="grid place-content-center min-h-screen font-dmsans bg-neutral-cream">
+  <div class="flex flex-col gap-4 max-w-xs lg:max-w-lg">
+      <header class="flex justify-between p-4 bg-primary-red rounded-xl">
+        <div class="flex gap-2 flex-col text-neutral-cream">
+          <p>My balance</p>
+          <p class="font-bold text-2xl">$<span id="b-total">0.00</span></p>
+        </div>
+        <div class="self-center">
+          <img src="images/logo.svg" alt="">
+        </div>
+      </header>
 
-  mon
-  tue
-  wed
-  thu
-  fri
-  sat
-  sun
+      <main class="flex flex-col gap-4 bg-neutral-pale-orange p-4 rounded-xl">
+        <h1 class="font-bold text-xl">Spending - Last 7 days</h1>
 
-  Total this month
-  $478.33
+        <div id="graph-wrapper" class="relative my-6 flex justify-around items-end mb-6 min-h-min"></div>
 
-  +2.4%
-  from last mont  
+        <hr class="border-1">
+      
+        <footer class="flex gap-20 lg:gap-36">
+          <div>
+            <p class="text-sm text-neutral-medium-brown">Total this month</p>
+            <h2 class="text-2xl font-bold">$<span id="b-month">000.00</span></h2>
+          </div>
+          <div>
+            <h2 class="text-right font-bold">+<span id="b-month-percentage">0.0</span>%</h2>
+            <p class="text-sm text-neutral-medium-brown">from last month</p>
+          </div>
+        </footer>
+    </main>
 </body>
+<template id="graph-bar-template">
+  <div class="relative flex flex-col justify-center w-8 gap-1">
+    <div class="bar order-1 peer bg-primary-red rounded-sm"></div>
+    <p class="date order-2 text-xs text-neutral-medium-brown text-center"></p>
+    <span class="amount order-0 self-center absolute top-[-30px] p-1 rounded-sm text-white text-center text-xs peer-hover:bg-black peer-hover:z-10"></span>
+  </div>
+</template>
+<script src="index.js"></script>
 </html>
