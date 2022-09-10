@@ -22,7 +22,7 @@
       <main class="flex flex-col gap-4 bg-neutral-pale-orange p-4 rounded-xl">
         <h1 class="font-bold text-xl">Spending - Last 7 days</h1>
 
-        <div id="graph-wrapper" class="relative my-6 flex justify-around items-end mb-6 min-h-min"></div>
+        <div id="graph-wrapper" class="relative z-1 my-6 flex justify-around items-end mb-6 min-h-min"></div>
 
         <hr class="border-1">
       
@@ -42,7 +42,7 @@
   <div class="relative flex flex-col justify-center w-8 gap-1">
     <div class="bar order-1 peer bg-primary-red rounded-sm"></div>
     <p class="date order-2 text-xs text-neutral-medium-brown text-center"></p>
-    <span class="amount order-0 self-center absolute top-[-30px] p-1 rounded-sm text-white text-center text-xs peer-hover:bg-black peer-hover:z-10"></span>
+    <span class="amount order-0 self-center absolute z-[-1] top-[-30px] p-1 rounded-sm text-neutral-pale-orange text-center text-xs peer-hover:bg-black peer-hover:z-10"></span>
   </div>
 </template>
 <script src="src/index.js"></script>
