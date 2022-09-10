@@ -14,10 +14,10 @@ function load(){
 function loadBalances(){
     const total = 921.48;
     const month = 478.33;
-    const monthPercentage = 2.4;
-    totalBalance.textContent = total;
-    monthBalance.textContent = month;
-    monthBalanceGrow.textContent = monthPercentage;
+    const monthPercentage = 2.4;       
+    countTo(0,total,10,totalBalance); 
+    countTo(0,month,5,monthBalance);
+    countTo(0.01,monthPercentage,0.02,monthBalanceGrow)
 }
 
 async function loadGraph(){
@@ -29,17 +29,54 @@ async function loadGraph(){
         const bar = graphBar.content.cloneNode(true);
         const height = Math.round(32*(item['amount']/10))
         const barFill = bar.querySelector('.bar');
-        barFill.style.height = `${height}px`;
         (index === indexDay-1) || (indexDay === 0 && index === 6) ? barFill.classList.replace(`bg-primary-red`,`bg-primary-cyan`) : '';
         barFill.classList.add(`hover:cursor-pointer`);
         const barAmount = bar.querySelector('.amount');
         barAmount.textContent = `$${item['amount']}`;
         const barDate = bar.querySelector('.date');
         barDate.textContent = item['day'];
+        barFill.style.height = `0px`;
         fragment.appendChild(bar); 
     });
-    graphContainer.appendChild(fragment)
+    graphContainer.appendChild(fragment);
+    document.querySelectorAll('.bar').forEach((bar,index) => {
+        const height = Math.round(32*(data[index]['amount']/10))
+        barTo(bar,height);
+    })
 }
 
+function barTo(bar,height){
+    let from = 0;
+    let step = height > from ? 1 : '';
+        let counter = setInterval(function(){
+            from += step;
+            bar.style.height = `${from}px`    
+
+            if (from >= Math.round(height)) {
+                bar.style.height = `${from}px`  
+                clearInterval(counter)
+            };
+        },5)
+}
+
+
+function countTo(from,to,interval,element){
+    let step = to > from ? interval : -interval;
+
+    if(from == Math.round(to)){
+        element.textContent = to;
+        return
+    }
+
+    let counter = setInterval(function(){
+        from += step;
+        element.textContent = from.toFixed(2)
+
+        if (from >= Math.round(to)) {
+            element.textContent = to;
+            clearInterval(counter)
+        };
+    },10)
+}
 
 
