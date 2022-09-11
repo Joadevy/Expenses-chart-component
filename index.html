@@ -12,7 +12,7 @@
       <header class="flex justify-between p-4 bg-primary-red rounded-xl">
         <div class="flex gap-2 flex-col text-neutral-cream">
           <p>My balance</p>
-          <p class="font-bold text-2xl">$<span id="b-total">0.00</span></p>
+          <p class="font-bold text-3xl">$<span id="b-total">0.00</span></p>
         </div>
         <div class="self-center">
           <img src="assets/logo.svg" alt="">
@@ -26,10 +26,10 @@
 
         <hr class="border-1">
       
-        <footer class="flex gap-20 lg:gap-36">
+        <footer class="flex gap-14 lg:gap-28">
           <div>
             <p class="text-sm text-neutral-medium-brown">Total this month</p>
-            <h2 class="text-2xl font-bold">$<span id="b-month">000.00</span></h2>
+            <h2 class="text-3xl lg:text-4xl font-bold">$<span id="b-month">000.00</span></h2>
           </div>
           <div>
             <h2 class="text-right font-bold">+<span id="b-month-percentage">0.0</span>%</h2>
@@ -40,7 +40,7 @@
 </body>
 <template id="graph-bar-template">
   <div class="relative flex flex-col justify-center w-8 gap-1">
-    <div class="bar order-1 peer bg-primary-red rounded-sm"></div>
+    <div class="bar order-1 peer bg-primary-red rounded-sm hover:opacity-60"></div>
     <p class="date order-2 text-xs text-neutral-medium-brown text-center"></p>
     <span class="amount order-0 self-center absolute z-[-1] top-[-30px] p-1 rounded-sm text-neutral-pale-orange text-center text-xs peer-hover:bg-black peer-hover:z-10"></span>
   </div>
